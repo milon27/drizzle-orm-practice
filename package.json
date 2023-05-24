@@ -1,0 +1,28 @@
+{
+  "name": "drizzle-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node --files src/app.ts",
+    "migrate": "drizzle-kit generate:mysql",
+    "apply": "ts-node --files src/db/migrator.ts",
+    "try": "ts-node --files src/try.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^8.0.1",
+    "@paralleldrive/cuid2": "^2.2.0",
+    "drizzle-orm": "^0.26.0",
+    "mysql2": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.1",
+    "drizzle-kit": "^0.17.6",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
