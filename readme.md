@@ -34,8 +34,8 @@ mkdir src
 
 ![migration result](images/migration.png)
 
-- now run `pnpm apply` to apply migration to database
-  - this will run the migrator in `src/db/migrator.ts` file which will read all of our migrations and apply those in db.
+- now run `pnpm db:deploy` to apply migration to database
+  - this will run the migrator in `.drizzle/migrator.ts` file which will read all of our migrations and apply those in db.
 
 ### some important doc
 

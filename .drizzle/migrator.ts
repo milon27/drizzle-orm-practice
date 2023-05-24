@@ -1,13 +1,15 @@
 // https://tone-row.com/blog/drizzle-orm-quickstart-tutorial-first-impressions
 
 import { migrate } from "drizzle-orm/mysql2/migrator";
-import { db } from "./db";
+import { db } from "../src/db/db";
 import path from "path";
 
 // this will automatically run needed migrations on the database
 // migrate(db, { migrationsFolder: path.resolve(__dirname, "src", "config", "db", "migrations") })
+export const migrationPath = path.resolve(".drizzle", "migrations");
+
 migrate(db, {
-  migrationsFolder: path.resolve("migrations"),
+  migrationsFolder: migrationPath,
 })
   .then(() => {
     console.log("Migrations complete!");

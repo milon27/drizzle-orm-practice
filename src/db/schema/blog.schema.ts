@@ -1,4 +1,4 @@
-import { InferModel, sql } from "drizzle-orm";
+import { InferModel, relations, sql } from "drizzle-orm";
 import {
   AnyMySqlColumn,
   datetime,
@@ -26,6 +26,16 @@ export const BlogSchema = mysqlTable("blog", {
     .default(sql`CURRENT_TIMESTAMP`), // todo: auto update
 });
 
+export const BlogRelations = relations(BlogSchema, ({ one, many }) => {
+  return {
+    author: one(UserSchema, {
+      fields: [BlogSchema.userId],
+      references: [UserSchema.id],
+    }),
+    blogToCategories: many(BlogToCategorySchema),
+  };
+});
+
 export type Blog = InferModel<typeof BlogSchema, "select">;
 export type CreateBlog = InferModel<typeof BlogSchema, "insert">;
 
@@ -50,6 +60,16 @@ export const CategorySchema = mysqlTable("category", {
     .default(sql`CURRENT_TIMESTAMP`),
 });
 
+export const CategoryRelations = relations(CategorySchema, ({ one, many }) => {
+  return {
+    author: one(UserSchema, {
+      fields: [CategorySchema.userId],
+      references: [UserSchema.id],
+    }),
+    blogToCategories: many(BlogToCategorySchema),
+  };
+});
+
 export type Category = InferModel<typeof CategorySchema, "select">;
 export type CreateCategory = InferModel<typeof CategorySchema, "insert">;
 
@@ -71,3 +91,17 @@ export const BlogToCategorySchema = mysqlTable("blog_to_category", {
     }
   ),
 });
+
+export const BlogToCategoryRelations = relations(
+  BlogToCategorySchema,
+  ({ one }) => ({
+    blog: one(BlogSchema, {
+      fields: [BlogToCategorySchema.blogSlug],
+      references: [BlogSchema.slug],
+    }),
+    category: one(CategorySchema, {
+      fields: [BlogToCategorySchema.categorySlug],
+      references: [CategorySchema.slug],
+    }),
+  })
+);

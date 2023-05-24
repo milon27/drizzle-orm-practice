@@ -7,9 +7,12 @@ dependencies:
   '@paralleldrive/cuid2':
     specifier: ^2.2.0
     version: 2.2.0
+  dotenv:
+    specifier: ^16.0.3
+    version: 16.0.3
   drizzle-orm:
-    specifier: ^0.26.0
-    version: 0.26.0(mysql2@3.3.1)
+    specifier: 0.26.1-c8de0ba
+    version: 0.26.1-c8de0ba(mysql2@3.3.1)
   mysql2:
     specifier: ^3.3.1
     version: 3.3.1
@@ -19,8 +22,8 @@ devDependencies:
     specifier: ^20.2.1
     version: 20.2.1
   drizzle-kit:
-    specifier: ^0.17.6
-    version: 0.17.6
+    specifier: ^0.18.0
+    version: 0.18.0
   nodemon:
     specifier: ^2.0.22
     version: 2.0.22
@@ -261,6 +264,11 @@ packages:
       heap: 0.2.7
     dev: true
 
+  /dotenv@16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
+
   /dreamopt@0.8.0:
     resolution: {integrity: sha512-vyJTp8+mC+G+5dfgsY+r3ckxlz+QMX40VjPQsZc5gxVAxLmi64TBoVkP54A/pRAXMXsbu2GMMBrZPxNv23waMg==}
     engines: {node: '>=0.4.0'}
@@ -268,8 +276,8 @@ packages:
       wordwrap: 1.0.0
     dev: true
 
-  /drizzle-kit@0.17.6:
-    resolution: {integrity: sha512-diNslu/ItzLv+++7l2noevXaCOrsfDXv+ZxMJWOy061Gs1BeEhP0t+mBKqeOPy8LsEo0aitNKOe+gPltEScmWQ==}
+  /drizzle-kit@0.18.0:
+    resolution: {integrity: sha512-43oH0XNWJDfMmVtDVnW8OV+tIs3xXDb1MjdsDiv0a7unQAylr0hpGG0HD5uEPWSbt7oxBots+hnYWxo98D0KAg==}
     hasBin: true
     dependencies:
       camelcase: 7.0.1
@@ -280,13 +288,14 @@ packages:
       glob: 8.1.0
       hanji: 0.0.5
       json-diff: 0.9.0
+      minimatch: 7.4.6
       zod: 3.21.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.26.0(mysql2@3.3.1):
-    resolution: {integrity: sha512-ztjhHehcuG5+lpGYxfT/L5I+yd/Z0dOf0fV3cS2ywBU01wkpxjwl4EJZVT7kVzjYfM8kwMGDghAPRPBCK0vULA==}
+  /drizzle-orm@0.26.1-c8de0ba(mysql2@3.3.1):
+    resolution: {integrity: sha512-dmIAjeyY+M8P4uQN+9+NnUwsarD2BsKE0D5sP+NDiuH0V6gjctH2A81sz5vElhMPoBVV1hZXulNlakR4t7Xx4g==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -786,6 +795,13 @@ packages:
 
   /minimatch@5.1.6:
     resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
+    engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
+  /minimatch@7.4.6:
+    resolution: {integrity: sha512-sBz8G/YjVniEz6lKPNpKxXwazJe4c19fEfV2GDMX6AjFz+MX9uDWIZW8XreVhkFW3fkIdTv/gxWr/Kks5FFAVw==}
     engines: {node: '>=10'}
     dependencies:
       brace-expansion: 2.0.1

@@ -20,6 +20,6 @@
     "typeRoots": ["./src/types"],
     "types": ["node"]
   },
-  "exclude": [],
+  "exclude": [".drizzle/migrator.ts"],
   "include": ["./.eslintrc.js", "./src"]
 }
